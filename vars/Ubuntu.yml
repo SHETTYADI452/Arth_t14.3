@@ -1,0 +1,5 @@
+#Var file for Ubuntu os
+
+
+Web_Server_Name: "apache2"
+document_root: /var/www/html

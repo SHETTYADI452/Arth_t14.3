@@ -1,0 +1,5 @@
+#Var file for Redhat os
+
+
+Web_Server_Name: "httpd"
+document_root: /var/www/html
