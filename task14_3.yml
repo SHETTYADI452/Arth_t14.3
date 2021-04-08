@@ -1,0 +1,19 @@
+- hosts: aws
+  vars_files:
+          - vars/{{ ansible_facts['distribution'] }}.yml
+
+  tasks:
+          - name: "Step 1: Installing the Web Server Software"
+            package:
+                    name: "{{ Web_Server_Name }}"
+                    state: present
+
+          - name: "Step 2: Copying the Webpage to the Doc root of Manage nodes"
+            template:
+                    dest: "{{ document_root }}"
+                    src: files/index.html.j2
+
+          - name: "Step 3: Starting the Web services"
+            service:
+                    name: "{{ Web_Server_Name }}"
+                    state: started
